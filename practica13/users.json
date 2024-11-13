@@ -1,0 +1,16 @@
+{
+  "users": [
+    {
+      "name": "Humberto Ezequiel",
+      "lastname": "Zelaya Campos",
+      "age": 21,
+      "country": "El Salvador"
+    },
+    {
+      "name": "Paola",
+      "lastname": "Castle",
+      "age": 21,
+      "country": "El Salvador"
+    }
+  ]
+}
