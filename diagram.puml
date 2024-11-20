@@ -1,0 +1,42 @@
+@startuml
+|Bibliotecario|
+start
+:Verificar si el usuario puede prestar más libros;
+if (Usuario puede prestar?) then (Sí)
+    :Seleccionar una copia del libro;
+    :Verificar si la copia está disponible;
+    if (Copia disponible?) then (Sí)
+        :Registrar el préstamo;
+        :Actualizar estado a "Prestado";
+        :Asociar el préstamo con el usuario;
+        :Entregar el libro al usuario;
+    else (No)
+        :Informar al usuario que el libro no está disponible;
+    endif
+else (No)
+    :Informar al usuario que no puede prestar más libros;
+endif
+stop
+
+|Usuario|
+:Recibir el libro prestado;
+:Usar el libro durante el periodo de préstamo;
+
+|Bibliotecario|
+:Recibir el libro para devolución;
+:Verificar si la devolución está en plazo;
+if (Devolución en plazo?) then (Sí)
+    :Registrar la devolución;
+    :Actualizar estado a "EnBiblioteca";
+else (No)
+    :Calcular multa por retraso;
+    :Informar al usuario sobre la multa;
+    :Registrar la devolución;
+    :Actualizar estado a "EnBiblioteca";
+endif
+stop
+
+|Usuario|
+:Recibir notificación de multa (si aplica);
+stop
+@enduml
